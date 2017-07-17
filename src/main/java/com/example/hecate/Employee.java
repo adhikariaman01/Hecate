@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.example.payroll;
+package com.example.hecate;
 
 import lombok.Data;
 

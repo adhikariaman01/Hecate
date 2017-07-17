@@ -6,14 +6,18 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.example.repository;
+package com.example.hecate;
 
-import com.example.payroll.Employee;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by amanadhikari on 7/16/17.
  */
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
-
+@Controller
+public class HomeController {
+    @RequestMapping(value = "/")
+    public String index(){
+        return "index";
+    }
 }
