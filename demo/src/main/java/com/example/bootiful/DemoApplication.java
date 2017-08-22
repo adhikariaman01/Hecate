@@ -1,16 +1,17 @@
 package com.example.bootiful;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,32 +24,34 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class DemoApplication {
 
-	@Bean
+	/*@Bean
 	CommandLineRunner commandLineRunner(ReservationRepository reservationRepository){
 		return strings -> {
 			Stream.of("Aman","Sabina","Bradley","Daniel","Khrish","Allen")
 					.forEach(n -> reservationRepository.save(new Reservation(n)));
 		};
-	}
+	}*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 }
 
-/*@Component
+@Component
 class DummyDataCLR implements CommandLineRunner {
 	@Autowired
 	private ReservationRepository reservationRepository;
 
 	@Override
 	public void run(String... strings) throws Exception {
-
+		Stream.of("Aman","Sabina","Bradley","Daniel","Khrish","Allen")
+				.forEach(n -> reservationRepository.save(new Reservation(n)));
 	}
-}*/
+}
 
-@RefreshScope
+
 @RestController
+@RefreshScope
 class MessageRestController {
 	@Value("${message}")
 	private String msg;
