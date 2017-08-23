@@ -1,3 +1,1 @@
-# Hecate
-
-Employer Tracking System
+# Employer Tracking System
