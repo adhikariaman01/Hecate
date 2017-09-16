@@ -11,6 +11,7 @@ public class ReservationClientApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }
