@@ -5,3 +5,4 @@ src/main/resources/application.properties ```
 
 * Third repo named eureka-service is then created.
 This service discovery repo is now configured in main project as service discovery client  saying ```@EnableDiscoveryClient```
+
