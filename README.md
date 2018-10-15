@@ -1,2 +1,0 @@
-# Hecate
-Magical Services
