@@ -19,6 +19,7 @@ public class EmployeeController {
     @RequestMapping(value = "/employee", method = RequestMethod.GET)
     @HystrixCommand(fallbackMethod="firstPageFallback")
     public Employee firstPage() {
+    	System.out.println("Inside firstPage");
         Employee emp = new Employee();
         emp.setName("Aman Adhikari");
         emp.setDesignation("software engineer");
@@ -32,6 +33,7 @@ public class EmployeeController {
     }
 
     public Employee firstPageFallback() {
+		System.out.println("Inside fallback");
     	Employee emp = new Employee();
     	emp.setName("Fallback Name");
     	emp.setDesignation("Fallback Designation");

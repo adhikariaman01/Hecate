@@ -18,6 +18,7 @@ public class EmployeeConsumerApplication {
 
         ConsumerControllerClient consumerControllerClient=ctx.getBean(ConsumerControllerClient.class);
         System.out.println(consumerControllerClient);
+        for(int i=0;i<100;i++)
         consumerControllerClient.getEmployee();
     }
 
