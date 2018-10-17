@@ -16,6 +16,8 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import com.consumer.service.RemoteCallService;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -46,7 +48,7 @@ public class ConsumerControllerClient {
         System.out.println(response.getBody());
     }*/
 	
-	@Autowired
+	/*@Autowired
 	private LoadBalancerClient loadBalancer;
 	
 public void getEmployee() throws RestClientException, IOException {
@@ -69,6 +71,19 @@ public void getEmployee() throws RestClientException, IOException {
 			System.out.println(ex);
 		}
 		System.out.println(response.getBody());
+	}*/
+	
+	@Autowired
+	private RemoteCallService loadBalancer;
+
+	public void getEmployee() throws RestClientException, IOException {
+
+		try {
+			Employee emp = loadBalancer.getData();
+			System.out.println(emp.getEmpId());
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 	}
 
     private static HttpEntity<?> getHeaders() throws IOException {
